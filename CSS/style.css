@@ -1,0 +1,40 @@
+.head{
+	background: rgb(13,91,217);
+	color: #fff;
+	text-align: center;
+	font-weight: bold;
+	padding-top: 10px;
+	letter-spacing: 2px;
+	font-size: 30px;
+}
+
+.bg{
+	padding-top: 160px;
+	padding-bottom: 160px;
+	background: rgb(230,230,230);
+}
+
+.text{
+	width: 100%;
+	height: 50px;
+	margin-top: 5px;
+	border-radius: 5px;
+	border: 2px solid rgb(13, 91, 217);
+	padding: 5px;
+	color: rgb(13, 91, 217); 
+}
+
+.but{
+	background: rgb(13, 91, 217);
+	border: none;
+	border-radius: 2px;
+	color: #fff;
+	margin-top: 20px;
+	width: 100%;
+	height: 35px;
+}
+
+.but:hover{
+	background: rgba(13, 91, 217,0.9);
+}
+

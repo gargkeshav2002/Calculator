@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculator</title>
+	<link rel="stylesheet" type="text/css" href="CSS/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="CSS/style.css">
+	<link rel="stylesheet" type="text/css" href="CSS/font-awesome.min.css">
+</head>
+<body>
+
+	<div class="col-md-12 head">
+		<p>CALCULATOR</p>
+	</div>
+
+	<!-- <div class="container "> -->
+		
+		<div class="col-md-12 bg">
+			<div class="col-md-4 col-md-offset-4">
+				<input class="text" type="text" id="ta">
+			</div>
+
+			<div class="col-md-4 col-md-offset-4">
+				<input class="text text-right" type="text" id="text">
+			</div>
+
+			<div class="clearfix"></div>
+
+			<div class="col-md-4 col-md-offset-4">
+				<div class="col-md-3">
+					<input class="but"  type="button" id="npo" value="x^y" onclick="pow()">
+				</div>
+
+				<div class="col-md-3">
+					<input class="but"  type="button" id="sqrt" value="sqrt(x)" onclick="sqrt()">
+				</div>
+
+				<div class="col-md-3">
+					<input class="but"  type="button" id="ch" value="Clear" onclick="clearhis()">
+				</div>
+
+				<div class="col-md-3">
+					<input class="but"  type="button" id="c" value="CE" onclick="cler()">
+				</div>
+
+				<div class="col-md-3">
+					<input class="but"  type="button" id="n7" value="7" onclick="num(this)">
+				</div>
+
+				<div class="col-md-3">
+					<input class="but"  type="button" id="n8" value="8" onclick="num(this)">
+				</div>
+
+				<div class="col-md-3">
+					<input class="but"  type="button" id="n9" value="9" onclick="num(this)">
+				</div>
+
+				<div class="col-md-3">
+					<input class="but"  type="button" id="np" value="+" onclick="ari(this)">
+				</div>
+
+				<div class="col-md-3">
+					<input class="but"  type="button" id="n4" value="4" onclick="num(this)">
+				</div>
+
+				<div class="col-md-3">
+					<input class="but"  type="button" id="n5" value="5" onclick="num(this)">
+				</div>
+
+				<div class="col-md-3">
+					<input class="but"  type="button" id="n6" value="6" onclick="num(this)">
+				</div>
+
+				<div class="col-md-3">
+					<input class="but"  type="button" id="nm" value="-" onclick="ari(this)">
+				</div>
+
+				<div class="col-md-3">
+					<input class="but"  type="button" id="n1" value="1" onclick="num(this)">
+				</div>
+
+				<div class="col-md-3">
+					<input class="but"  type="button" id="n2" value="2" onclick="num(this)">
+				</div>
+
+				<div class="col-md-3">
+					<input class="but"  type="button" id="n3" value="3" onclick="num(this)">
+				</div>
+
+				<div class="col-md-3">
+					<input class="but"  type="button" id="nmu" value="*" onclick="ari(this)">
+				</div>
+
+				<div class="col-md-3">
+					<input class="but"  type="button" id="n0" value="0" onclick="num(this)">
+				</div>
+
+				<div class="col-md-3">
+					<input class="but"  type="button" id="npo" value="." onclick="num(this)">
+				</div>
+
+				<div class="col-md-3">
+					<input class="but"  type="button" id="ne" value="=" onclick="equal()">
+				</div>
+
+				<div class="col-md-3">
+					<input class="but"  type="button" id="nd" value="/" onclick="ari(this)">
+				</div>
+			</div>
+		</div>
+	<!-- </div> -->
+
+	<script type="text/javascript">
+
+		var a,b,cal1,cal2,t,w=0;
+
+		function clearhis()
+		{
+			document.getElementById("ta").value="";
+			document.getElementById("text").value="";
+		}
+
+		function cler()
+		{
+			document.getElementById("text").value="";
+
+			b=document.getElementById("ta").value;
+			document.getElementById("ta").value="";
+		}
+		
+		function num(n)
+		{
+			a=document.getElementById("text").value;
+			document.getElementById("text").value=a+n.value;
+
+			b=document.getElementById("ta").value;
+			document.getElementById("ta").value=b+n.value;
+		}
+
+		function ari(n)
+		{
+			a=document.getElementById("text").value
+			document.getElementById("text").value=a+n.value;
+
+			b=document.getElementById("ta").value;
+			document.getElementById("ta").value=b+n.value
+		}
+
+
+		function pow()
+		{
+			w=1;
+			cal1=parseFloat(document.getElementById("text").value);
+			document.getElementById("ta").value=cal1+'^';
+
+			// b=document.getElementById("ta").value;
+			document.getElementById("text").value="";
+		}
+
+		function sqrt()
+		{
+			w=2;
+			document.getElementById("ta").value='sqrt';
+
+			// b=document.getElementById("ta").value;
+			// document.getElementById("ta").value=b+'sqrt';
+		}
+
+		function equal()
+		{
+			if (w==0) 
+			{
+				t=document.getElementById("text").value;
+				document.getElementById("text").value= eval(t);
+
+				document.getElementById("ta").value= t+'='+eval(t);
+				
+			}
+			else if(w==1)
+			{
+				cal2=parseFloat(document.getElementById("text").value);
+
+				b=document.getElementById("ta").value;
+
+				document.getElementById("ta").value= b+'='+Math.pow(cal1,cal2);
+				document.getElementById("text").value= Math.pow(cal1,cal2);
+				w=0;
+			}
+			else if(w==2)
+			{
+				cal2=parseFloat(document.getElementById("text").value);
+
+				b=document.getElementById("ta").value;
+
+				document.getElementById("ta").value= b+'='+Math.sqrt(cal2);
+				document.getElementById("text").value= Math.sqrt(cal2);
+				w=0;
+			}
+		}
+
+	</script>
+
+</body>
+</html>
