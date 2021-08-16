@@ -1,2 +1,2 @@
 # Calculator
-This is a calculator made in JavaScript
+This is a calculator, made in JavaScript
